@@ -2,6 +2,7 @@
   body {
     font-family: Arial, Helvetica, sans-serif;
   }
+  .buitiful-container { display: flex; align-items: center; flex-direction: column; justify-content: center; }
   h1, h2 {
     font-weight: 900;
   }
@@ -9,13 +10,29 @@
     opacity: 0;
     visibility: hidden;
   }
+  button {
+    outline: none; background: #242424;
+    border-radius: 2px;
+    padding: 2px 16px;
+    height: 48px;
+    text-align: center;
+    border: none;
+    color: #fff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #454545;
+  }
 </style>
 
-<h2>bUItiful</h2>
-<!-- <p>Count: <input id="count" value="5"></p> -->
-<button id="createPage">Create pages</button>
-<button id="cancel">Cancel</button>
-<button id="deletePages">Delete all pages</button>
+<div class="buitiful-container">
+  <h2>BUItify</h2>
+  <!-- <p>Count: <input id="count" value="5"></p> -->
+  <button id="createPage">Create pages</button>
+  <button id="cancel">Cancel</button>
+  <!-- <button id="deletePages">Delete all pages</button> -->
+</div>
 
 <script>
 
@@ -28,9 +45,9 @@
   }
   
   // Delete all pages
-  document.getElementById('deletePages').onclick = () => {
-    parent.postMessage({ pluginMessage: { type: 'delete-pages' } }, '*')
-  }
+  // document.getElementById('deletePages').onclick = () => {
+  //   parent.postMessage({ pluginMessage: { type: 'delete-pages' } }, '*')
+  // }
 
   // document.getElementById('create').onclick = () => {
   //   const textbox = document.getElementById('count');
