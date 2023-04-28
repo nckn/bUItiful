@@ -1,17 +1,45 @@
-<h2>Rectangle Creator</h2>
-<p>Count: <input id="count" value="5"></p>
-<button id="create">Create</button>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  h1, h2 {
+    font-weight: 900;
+  }
+  #cancel {
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
+
+<h2>bUItiful</h2>
+<!-- <p>Count: <input id="count" value="5"></p> -->
+<button id="createPage">Create pages</button>
 <button id="cancel">Cancel</button>
+<button id="deletePages">Delete all pages</button>
+
 <script>
 
-document.getElementById('create').onclick = () => {
-  const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
-}
+  // Create pages
+  document.getElementById('createPage').onclick = () => {
+    // const textbox = document.getElementById('count');
+    // const count = parseInt(textbox.value, 10);
+    parent.postMessage({ pluginMessage: { type: 'create-pages' } }, '*')
+    // parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+  }
+  
+  // Delete all pages
+  document.getElementById('deletePages').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'delete-pages' } }, '*')
+  }
 
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
-}
+  // document.getElementById('create').onclick = () => {
+  //   const textbox = document.getElementById('count');
+  //   const count = parseInt(textbox.value, 10);
+  //   parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
+  // }
+
+  // document.getElementById('cancel').onclick = () => {
+  //   parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+  // }
 
 </script>
